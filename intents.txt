@@ -1,0 +1,47 @@
+{
+  "intents": [
+    {
+      "slots": [
+        {
+          "name": "Color",
+          "type": "SKITTLE_COLORS"
+        }
+      ],
+      "intent": "WhatsTheSkittleCount"
+    },
+    {
+      "slots": [
+        {
+          "name": "MeasurementType",
+          "type": "MEASUREMENT_TYPE"
+        },
+        {
+          "name": "NodeID",
+          "type": "NODE_IDS"
+        }
+      ],
+      "intent": "GetEnvData"
+    },
+    {
+      "intent": "AllStar"
+    },
+    {
+      "intent": "OriginStory"
+    },
+    {
+      "intent": "DevelopersDevelopersDevelopers"
+    },
+    {
+      "intent": "JohnsSong"
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    },
+    {
+      "intent": "AMAZON.CancelIntent"
+    },
+    {
+      "intent": "AMAZON.StopIntent"
+    }
+  ]
+}

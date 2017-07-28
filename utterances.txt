@@ -1,0 +1,13 @@
+WhatsTheSkittleCount number of {Color} skittles
+WhatsTheSkittleCount how many {Color} skittles are there
+WhatsTheSkittleCount whats the number of {Color} skittles
+GetEnvData {MeasurementType} node {NodeID}
+GetEnvData {MeasurementType} at node {NodeID}
+GetEnvData the {MeasurementType} at node {NodeID}
+GetEnvData {MeasurementType} station {NodeID}
+GetEnvData {MeasurementType} at station {NodeID}
+GetEnvData the {MeasurementType} at station {NodeID}
+AllStar your favorite poem
+OriginStory your origin story
+JohnsSong what is johns favorite song
+DevelopersDevelopersDevelopers windows two thousand
