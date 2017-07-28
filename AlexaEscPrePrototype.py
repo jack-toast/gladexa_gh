@@ -249,18 +249,14 @@ def get_smash(intent, session):
         intent['name'], speech_output, reprompt_text, should_end_session))
 
 def get_johns_song(intent, session):
-    """ This function is extremely important, do not remove. """
     session_attributes = {}
-    reprompt_text = None
-
-    speech_output = " Were no strangers to love."\
-        " You know the rules and so do I. "\
-        " A full commitments what Im thinking of. "\
-        " You wouldnt get this from any other guy"
-
+    card_title = "Rick Astley"
+    speech_output = '<speak><audio src="https://s3.amazonaws.com/arrowesciottest/Rick+Astley+-+Never+Gonna+Give+You+Up.mp3"/></speak>'
+    card_output = 'playing Ricky the kid'
+    reprompt_text = '<speak><audio src="https://s3.amazonaws.com/glados-home-automation/GLaDOS_escape_01_part1_nag05-1.mp3"/></speak>'
     should_end_session = False
-    return build_response(session_attributes, build_speechlet_response(
-        intent['name'], speech_output, reprompt_text, should_end_session))
+    return build_response(session_attributes, build_sound_response(
+        card_title, speech_output, card_output, reprompt_text, should_end_session))
 
 def get_ballmer(intent, session):
     """ This function is extremely important, do not remove. """
