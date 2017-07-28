@@ -258,20 +258,6 @@ def get_johns_song(intent, session):
     return build_response(session_attributes, build_sound_response(
         card_title, speech_output, card_output, reprompt_text, should_end_session))
 
-def get_ballmer(intent, session):
-    """ This function is extremely important, do not remove. """
-    session_attributes = {}
-    reprompt_text = None
-
-    speech_output = "DEVELOPERS "
-
-    for i in range(0, 14):
-        speech_output += "DEVELOPERS "
-
-    should_end_session = False
-    return build_response(session_attributes, build_speechlet_response(
-        intent['name'], speech_output, reprompt_text, should_end_session))
-
 def get_mordor(intent, session):
     """
     Call phrase: "[OriginStory] your origin story"
@@ -343,9 +329,6 @@ def on_intent(intent_request, session):
 
     elif intent_name == "JohnsSong":
         return get_johns_song(intent, session)
-
-    elif intent_name == "DevelopersDevelopersDevelopers":
-        return get_ballmer(intent, session)
 
     elif intent_name == "PlaySoundFile":
         return get_mp3(intent, session)
