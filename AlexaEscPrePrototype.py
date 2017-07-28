@@ -50,8 +50,8 @@ def build_sound_response(title, speech_output, card_output, reprompt_text, shoul
         },
         'reprompt': {
             'outputSpeech': {
-                'type': 'PlainText',
-                'text': reprompt_text
+                'type': 'SSML',
+                'ssml': reprompt_text
             }
         },
         'shouldEndSession': should_end_session
@@ -69,25 +69,22 @@ def build_response(session_attributes, speechlet_response):
 def get_welcome_response():
     session_attributes = {}
     card_title = "Welcome"
-#    speech_output = "Hello and, again, welcome to the Aperture Science computer-aided enrichment center."
     speech_output = '<speak><audio src="https://s3.amazonaws.com/glados-home-automation/GLaDOS_00_part1_entry-1.mp3"/></speak>'
     card_output = 'playing GLaDOS_00_part1_entry-1.mp3'
-    # If the user either does not reply to the welcome message or says something
-    # that is not understood, they will be prompted again with this text.
-    reprompt_text = "Hello? Is anyone there?"
-
+    reprompt_text = '<speak><audio src="https://s3.amazonaws.com/glados-home-automation/GLaDOS_escape_01_part1_nag05-1.mp3"/></speak>'
     should_end_session = False
-
     return build_response(session_attributes, build_sound_response(
         card_title, speech_output, card_output, reprompt_text, should_end_session))
 
 def handle_session_end_request():
+    session_attributes = {}
     card_title = "Session Ended"
-    speech_output = "The talking is over"
-    # Setting this to true ends the session and exits the skill.
+    speech_output = '<speak><audio src="https://s3.amazonaws.com/glados-home-automation/GLaDOS_15_part1_into_the_fire-5.mp3"/></speak>'
+    card_output = 'playing GLaDOS_00_part1_entry-1.mp3'
+    reprompt_text = '<speak><audio src="https://s3.amazonaws.com/glados-home-automation/GLaDOS_escape_01_part1_nag05-1.mp3"/></speak>'
     should_end_session = True
-    return build_response({}, build_speechlet_response(
-        card_title, speech_output, None, should_end_session))
+    return build_response(session_attributes, build_sound_response(
+        card_title, speech_output, card_output, reprompt_text, should_end_session))
 
 # ---------------------------------------------------------------
 # -------------------- No man's land ----------------------------
