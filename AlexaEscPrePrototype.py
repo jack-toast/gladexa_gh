@@ -286,17 +286,15 @@ def get_mordor(intent, session):
     session_attributes = {}
     reprompt_text = None
 
-
     speech_output = "Now, the Elves made many rings, but secretly Sauron made " \
         "One Ring to rule all the others, and their power was bound up with it, " \
         "to be subject wholly to it and to last only so long as it too should last. "
-
 
     should_end_session = False
     return build_response(session_attributes, build_speechlet_response(
         intent['name'], speech_output, reprompt_text, should_end_session))
 
-def get_wav(intent,session):
+def get_mp3(intent,session):
     """
     Call Phrase: TalkingOver
     """
@@ -305,6 +303,7 @@ def get_wav(intent,session):
 
     speech_output = "Trying to use the SSML Stuff"
 
+    should_end_session = False
     return build_response(session_attributes, build_sound_response(
         intent['name'], speech_output, reprompt_text, should_end_session))
 
@@ -355,7 +354,7 @@ def on_intent(intent_request, session):
         return get_ballmer(intent, session)
 
     elif intent_name == "PlaySoundFile":
-        return get_wav(intent, session)
+        return get_mp3(intent, session)
 
     elif intent_name == "AMAZON.HelpIntent":
         return get_welcome_response()
