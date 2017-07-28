@@ -37,6 +37,26 @@ def build_speechlet_response(title, output, reprompt_text, should_end_session):
         'shouldEndSession': should_end_session
     }
 
+def build_sound_response(title, output, reprompt_text, should_end_session):
+    return {
+        'outputSpeech': {
+            'type': 'SSML',
+            'ssml': "<speak> This output speech uses SSML </speak>""
+        },
+        'card': {
+            'type': 'Simple',
+            'title': "SessionSpeechlet - " + title,
+            'content': "SessionSpeechlet - " + output
+        },
+        'reprompt': {
+            'outputSpeech': {
+                'type': 'PlainText',
+                'text': reprompt_text
+            }
+        },
+        'shouldEndSession': should_end_session
+    }
+
 def build_response(session_attributes, speechlet_response):
     return {
         'version': '1.0',
@@ -276,6 +296,18 @@ def get_mordor(intent, session):
     return build_response(session_attributes, build_speechlet_response(
         intent['name'], speech_output, reprompt_text, should_end_session))
 
+def get_wav(intent,session):
+    """
+    Call Phrase: TalkingOver
+    """
+    session_attributes = {}
+    reprompt_text = None
+
+    speech_output = "Trying to use the SSML Stuff"
+
+    return build_response(session_attributes, build_sound_response(
+        intent['name'], speech_output, reprompt_text, should_end_session))
+
 # --------------------------------- Events -------------------------------------
 
 def on_session_started(session_started_request, session):
@@ -321,6 +353,9 @@ def on_intent(intent_request, session):
 
     elif intent_name == "DevelopersDevelopersDevelopers":
         return get_ballmer(intent, session)
+
+    elif intent_name == "PlaySoundFile":
+        return get_wav(intent, session)
 
     elif intent_name == "AMAZON.HelpIntent":
         return get_welcome_response()
