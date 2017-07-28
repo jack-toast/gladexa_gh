@@ -12,6 +12,7 @@ from __future__ import print_function
 import json
 import boto3
 import re
+import random
 
 s3 = boto3.client('s3')
 
@@ -258,6 +259,23 @@ def get_johns_song(intent, session):
     return build_response(session_attributes, build_sound_response(
         card_title, speech_output, card_output, reprompt_text, should_end_session))
 
+def get_fact(intent, session):
+    session_attributes = {}
+    card_title = "InterestingFact"
+    randy_savage = random.randint(1,3)
+
+    if(randy_savage == 1):
+        speech_output = '<speak><audio src="https://s3.amazonaws.com/glados-home-automation/GLaDOS_fact_air.mp3"/></speak>'
+    elif(randy_savage == 2):
+        speech_output = '<speak><audio src="https://s3.amazonaws.com/glados-home-automation/GLaDOS_fact_organs.mp3"/></speak>'
+    else:
+        speech_output = '<speak><audio src="https://s3.amazonaws.com/glados-home-automation/GLaDOS_fact_train.mp3"/><audio src="https://s3.amazonaws.com/glados-home-automation/GLaDOS_fact_train2.mp3"/></speak>'
+
+    card_output = 'portal facts'
+    should_end_session = False
+    return build_response(session_attributes, build_sound_response(
+        card_title, speech_output, card_output, reprompt_text, should_end_session))
+
 def get_mordor(intent, session):
     """
     Call phrase: "[OriginStory] your origin story"
@@ -332,6 +350,9 @@ def on_intent(intent_request, session):
 
     elif intent_name == "PlaySoundFile":
         return get_mp3(intent, session)
+
+    elif intent_name == "InterestingFact":
+        return get_fact(intent, session)
 
     elif intent_name == "AMAZON.HelpIntent":
         return get_welcome_response()
