@@ -37,16 +37,16 @@ def build_speechlet_response(title, output, reprompt_text, should_end_session):
         'shouldEndSession': should_end_session
     }
 
-def build_sound_response(title, output, reprompt_text, should_end_session):
+def build_sound_response(title, speech_output, card_output, reprompt_text, should_end_session):
     return {
         'outputSpeech': {
             'type': 'SSML',
-            'ssml': "<speak> This output speech uses SSML </speak>""
+            'ssml': speech_output
         },
         'card': {
             'type': 'Simple',
             'title': "SessionSpeechlet - " + title,
-            'content': "SessionSpeechlet - " + output
+            'content': "SessionSpeechlet - " + card_output
         },
         'reprompt': {
             'outputSpeech': {
@@ -69,16 +69,17 @@ def build_response(session_attributes, speechlet_response):
 def get_welcome_response():
     session_attributes = {}
     card_title = "Welcome"
-    speech_output = "Hello and, again, welcome to the Aperture Science computer-aided enrichment center."
-
+#    speech_output = "Hello and, again, welcome to the Aperture Science computer-aided enrichment center."
+    speech_output = '<speak><audio src="https://s3.amazonaws.com/glados-home-automation/GLaDOS_00_part1_entry-1.mp3"/></speak>'
+    card_output = 'playing GLaDOS_00_part1_entry-1.mp3'
     # If the user either does not reply to the welcome message or says something
     # that is not understood, they will be prompted again with this text.
     reprompt_text = "Hello? Is anyone there?"
 
     should_end_session = False
 
-    return build_response(session_attributes, build_speechlet_response(
-        card_title, speech_output, reprompt_text, should_end_session))
+    return build_response(session_attributes, build_sound_response(
+        card_title, speech_output, card_output, reprompt_text, should_end_session))
 
 def handle_session_end_request():
     card_title = "Session Ended"
@@ -287,8 +288,8 @@ def get_mordor(intent, session):
     reprompt_text = None
 
     speech_output = "Now, the Elves made many rings, but secretly Sauron made " \
-        "One Ring to rule all the others, and their power was bound up with it, " \
-        "to be subject wholly to it and to last only so long as it too should last. "
+    "One Ring to rule all the others, and their power was bound up with it, " \
+    "to be subject wholly to it and to last only so long as it too should last. "
 
     should_end_session = False
     return build_response(session_attributes, build_speechlet_response(
@@ -301,7 +302,7 @@ def get_mp3(intent,session):
     session_attributes = {}
     reprompt_text = None
 
-    speech_output = "Trying to use the SSML Stuff"
+    speech_output = '<speak><audio src="https://s3.amazonaws.com/glados-home-automation/GLaDOS_00_part1_entry-1.mp3"/></speak>'
 
     should_end_session = False
     return build_response(session_attributes, build_sound_response(
