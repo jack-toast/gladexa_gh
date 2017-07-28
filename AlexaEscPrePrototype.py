@@ -49,11 +49,11 @@ def build_response(session_attributes, speechlet_response):
 def get_welcome_response():
     session_attributes = {}
     card_title = "Welcome"
-    speech_output = "Beep boop, arrow launch successful."
+    speech_output = "Hello and, again, welcome to the Aperture Science computer-aided enrichment center."
 
     # If the user either does not reply to the welcome message or says something
     # that is not understood, they will be prompted again with this text.
-    reprompt_text = "Did you want to ask me something"
+    reprompt_text = "Hello? Is anyone there?"
 
     should_end_session = False
 
@@ -62,7 +62,7 @@ def get_welcome_response():
 
 def handle_session_end_request():
     card_title = "Session Ended"
-    speech_output = "Thanks for stopping by. Hashtag five years out"
+    speech_output = "The talking is over"
     # Setting this to true ends the session and exits the skill.
     should_end_session = True
     return build_response({}, build_speechlet_response(
