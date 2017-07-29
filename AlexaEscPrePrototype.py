@@ -216,8 +216,6 @@ def get_individual_skittle_count(intent, session):
 
     should_end_session = False
 
-    skittle_count = 0
-
     try:
         sensor_data = parsed_data['industrial']['levels'][read_index]
     except Exception as e:
@@ -262,6 +260,7 @@ def get_johns_song(intent, session):
 def get_fact(intent, session):
     session_attributes = {}
     card_title = "InterestingFact"
+    reprompt_text = None
     randy_savage = random.randint(1,3)
 
     if(randy_savage == 1):
