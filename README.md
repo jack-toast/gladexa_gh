@@ -35,28 +35,32 @@
 
 Apparently [Draw.io](https://www.draw.io/) has pokemon icons, so I'll be using those to explain how **Intents** and **Slots** work.
 
+So lets say we have three different intents in our skill
+
 ![Pokemans](https://github.com/jack-toast/gladexa/blob/master/images/pokemon2.png?raw=true)
 
+Intent | Slot Type | Slot Value Options
+--- | --- | ---
+ OG Red | B-Tier Pokemon | Rattata, Pidgey, Magikarp
+Ultra | A-Tier Pokemon | Dragonair, Nidoking, Rapidash
+Master | S-Tier Pokemon | Mewtwo, Zapdos, Mew
 
-For this example:
-- Intents = **OG** (red/white), **ultra** (black/yellow), and **master** (purple) Pokeballs
-- Slot = Different Pokemon Tiers (tier 1, tier 2, tier 3)
-- Slot Values = Individual Pokemon Themselves
+So if we invoked our Pokemans Skill, we would pass an intent of either OG Red, Ultra, or Master. Within each intent we pass a value into a slot.
+
+An example invocation of our Alexa skill could be as follows.
 
 
-Each intent can have slots. For these *Pokeballs*, the slots would be of type *Pokemon*
-
-So for the first Pokeball
 
 
-##### **Intent Schema**
 
-##### **Custom Slot Types**
 
-##### **Sample Utterances**
 
-og: rattata, pidgey, magicarpet.
 
-ultra: dragonair, nidoking, rapidash
 
-master: Mewtwo, mew, zaptos
+
+
+
+
+
+
+asdf
