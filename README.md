@@ -9,11 +9,6 @@
   - [Understanding Custom Skills](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/overviews/understanding-custom-skills)
 - [Amazon Simple Storage Service](https://aws.amazon.com/documentation/s3/)
 - [GLaDOS Voice Lines](https://theportalwiki.com/wiki/GLaDOS_voice_lines)
-
-
-### Great guides:
 - [Decypher Media (AlwaysBCoding) Alexa Lambda Tutorial](https://www.youtube.com/watch?v=zt9WdE5kR6g&t=697s)
-- a
-- s
-- d
-- f
+
+### How it all works
