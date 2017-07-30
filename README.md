@@ -38,15 +38,14 @@ Apparently Draw.io has pokemon icons, so I'll be using those to explain how **In
 ![Pokemans](https://github.com/jack-toast/gladexa/blob/master/images/pokemon.png?raw=true)
 
 
+For this example:
+- The **OG** (red/white), **ultra** (black/yellow), and **master** (purple) Pokeballs are our intents.
+- Each Pokemon
 
-og: rattata, pidgey, magicarpet.
 
-ultra: dragonair, nidoking, rapidash
+Each intent can have slots. For these *Pokeballs*, the slots would be of type *Pokemon*
 
-masterball: Mewtwo, mew, zaptos
-
-When you invoke a Alexa skill, it sends out a request to the lambda function. The request has two parts that matter to us: the Intent and the Slot
-
+So for the first Pokeball
 
 
 ##### **Intent Schema**
@@ -54,3 +53,9 @@ When you invoke a Alexa skill, it sends out a request to the lambda function. Th
 ##### **Custom Slot Types**
 
 ##### **Sample Utterances**
+
+og: rattata, pidgey, magicarpet.
+
+ultra: dragonair, nidoking, rapidash
+
+master: Mewtwo, mew, zaptos
