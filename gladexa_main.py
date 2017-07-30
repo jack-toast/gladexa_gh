@@ -1,9 +1,8 @@
 """
-Arrow ESC Alexa Integration
+Gladexa Main Lambda Function
 Author: Jonathan Yost
-This program/script/word-thing is to be used by the Arrow ESC to show Arrow's Alexa integration functionality.
 
-Backup: Before prototype
+This thingydo is the main brains of the Gladexa project.
 
 """
 

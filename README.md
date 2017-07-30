@@ -12,3 +12,9 @@
 - [Decypher Media (AlwaysBCoding) Alexa Lambda Tutorial](https://www.youtube.com/watch?v=zt9WdE5kR6g&t=697s)
 
 ### How it all works
+![Main Diagram](https://github.com/jack-toast/gladexa/blob/master/images/overview%20diagram.png?raw=true)
+
+#### From the image above, we see the three main components:
+1. The Alexa skill / Echo itself
+2. The Lambda function that handles all of our processing and routing
+3. The S3 backend that holds all of our data
