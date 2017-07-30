@@ -20,5 +20,12 @@
 3. The S3 backend that holds all of our data
 
 ### Setting up the Alexa Skill
-1. Go to [developer.amazon.com](https://developer.amazon.com/) and sign in or create an account
-2. Go to the Alexa tab and click Get Started under Alexa Skills Kit
+1. Sign into the [Amazon Developer console](https://developer.amazon.com/)
+2. Go to the Alexa tab and click **Get Started** under Alexa Skills Kit
+![Circled for ya](https://github.com/jack-toast/gladexa/blob/master/images/ASK%20get%20started.png?raw=true)
+3. Add a new skill! ![Clickety Clack](https://github.com/jack-toast/gladexa/blob/master/images/addnewskill%20copy.PNG?raw=true)
+4. - Skill Type: Custom Interaction Model
+  - Language: English (U.S. or U.K.) or German
+  - Name: Whatever you want. This will show in the Alexa store thing.
+  - Invocation Name: for this project I used *glados*
+  - Global Fields: ignore these
