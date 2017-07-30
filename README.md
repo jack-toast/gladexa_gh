@@ -33,14 +33,15 @@
 
 #### 5. Interaction Model
 
-Apparently Draw.io has pokemon icons, so I'll be using those to explain how **Intents** and **Slots** work.
+Apparently [Draw.io](https://www.draw.io/) has pokemon icons, so I'll be using those to explain how **Intents** and **Slots** work.
 
 ![Pokemans](https://github.com/jack-toast/gladexa/blob/master/images/pokemon.png?raw=true)
 
 
 For this example:
-- The **OG** (red/white), **ultra** (black/yellow), and **master** (purple) Pokeballs are our intents.
-- Each Pokemon
+- Intents = **OG** (red/white), **ultra** (black/yellow), and **master** (purple) Pokeballs
+- Slot = Different Pokemon Tiers (tier 1, tier 2, tier 3)
+- Slot Values = Individual Pokemon Themselves
 
 
 Each intent can have slots. For these *Pokeballs*, the slots would be of type *Pokemon*
