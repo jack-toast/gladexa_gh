@@ -39,11 +39,11 @@ The interaction model describes how our speech is parsed into a command that is 
 
 Let's take an example command and break it down.
 
-*"Alexa, ask glados to tell me an interesting fact"*
+*"Alexa, ask glados to tell me the interesting fact about air"*
 
-Alexa | ask | glados | to | tell me an interesting fact
-------|-----|--------|----|-----------------------------
-Wake word | Linker | Invocation Name | Linker | Call a specific intent
+Alexa, | ask | glados | to | tell me an interesting fact about | air
+------|-----|--------|----|-----------------------------------|------
+Wake word | Linker | Invocation Name | Linker | Specifies the intent | Slot value
 
 
 

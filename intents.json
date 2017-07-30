@@ -4,7 +4,13 @@
       "intent": "AllStar"
     },
     {
-      "intent": "InterestingFact"
+      "intent": "InterestingFact",
+      "slots" : [
+        {
+          "name" : "FactNumber",
+          "type" : "FACT_NUMBER"
+        }
+      ]
     },
     {
       "intent": "OriginStory"

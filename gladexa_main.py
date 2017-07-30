@@ -262,12 +262,21 @@ def get_fact(intent, session):
     reprompt_text = None
     randy_savage = random.randint(1,3)
 
-    if(randy_savage == 1):
+    raw_num = intent['slots']['FactNumber']['value']
+
+    fact_num = int(re.findall("\d+", raw_num)[0])
+
+    if(fact_num == 1):
+        # air
         speech_output = '<speak><audio src="https://s3.amazonaws.com/glados-home-automation/GLaDOS_fact_air.mp3"/></speak>'
-    elif(randy_savage == 2):
+    elif(fact_num == 2):
+        # organ
         speech_output = '<speak><audio src="https://s3.amazonaws.com/glados-home-automation/GLaDOS_fact_organs.mp3"/></speak>'
-    else:
+    elif(fact_num == 3):
+        # train
         speech_output = '<speak><audio src="https://s3.amazonaws.com/glados-home-automation/GLaDOS_fact_train.mp3"/><audio src="https://s3.amazonaws.com/glados-home-automation/GLaDOS_fact_train2.mp3"/></speak>'
+    else:
+        speech_output = '<speak><audio src="https://s3.amazonaws.com/glados-home-automation/GLaDOS_15_part1_into_the_fire-5.mp3"/></speak>'
 
     card_output = 'portal facts'
     should_end_session = False
