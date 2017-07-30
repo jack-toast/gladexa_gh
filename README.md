@@ -13,6 +13,7 @@
 
 ### Great guides:
 - [Decypher Media (AlwaysBCoding) Alexa Lambda Tutorial](https://www.youtube.com/watch?v=zt9WdE5kR6g&t=697s)
--
--
--
+- a
+- s
+- d
+- f
