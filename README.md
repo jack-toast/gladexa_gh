@@ -17,12 +17,12 @@
 - The Lambda function that handles all of our processing and routing
 - The S3 backend that holds all of our data
 
-### Setting up the Alexa Skill
-#### 1. [Amazon Developer console](https://developer.amazon.com/) >> Sign In
-#### 2. Alexa Tab >> Alexa Skills Kit >> **Get Started**
+## Setting up the Alexa Skill
+### 1. [Amazon Developer console](https://developer.amazon.com/) >> Sign In
+### 2. Alexa Tab >> Alexa Skills Kit >> **Get Started**
 ![Circled for ya](https://github.com/jack-toast/gladexa/blob/master/images/ASK%20get%20started.png?raw=true)
-#### 3. Add a new skill ![Clickety Clack](https://github.com/jack-toast/gladexa/blob/master/images/addnewskill%20copy.PNG?raw=true)
-#### 4. Skill Information
+### 3. Add a new skill ![Clickety Clack](https://github.com/jack-toast/gladexa/blob/master/images/addnewskill%20copy.PNG?raw=true)
+### 4. Skill Information
   - Skill Type: Custom Interaction Model
   - Language: English (U.S. or U.K.) or German
   - Name: Whatever you want. This will show in the Alexa store thing if you publish the skill. I'm not publishing, so I named it for my own organization.
@@ -31,7 +31,22 @@
   - Click *next*
 ![Skill Information](https://github.com/jack-toast/gladexa/blob/master/images/Skill%20Information.png?raw=true)
 
-#### 5. Interaction Model
+### 5. Interaction Model
+
+#### What it do?
+
+The interaction model describes how our speech is parsed into a command that is sent to the Lambda function.
+
+Let's take an example command and break it down.
+
+*"Alexa, ask glados to tell me an interesting fact"*
+
+Alexa | ask | glados | to | tell me an interesting fact
+------|-----|--------|----|-----------------------------
+Wake word | Linker | Invocation Name | Linker | Call a specific intent
+
+
+
 
 
 
