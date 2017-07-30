@@ -18,3 +18,7 @@
 1. The Alexa skill / Echo itself
 2. The Lambda function that handles all of our processing and routing
 3. The S3 backend that holds all of our data
+
+### Setting up the Alexa Skill
+1. Go to [developer.amazon.com](https://developer.amazon.com/) and sign in or create an account
+2. Go to the Alexa tab and click Get Started under Alexa Skills Kit
