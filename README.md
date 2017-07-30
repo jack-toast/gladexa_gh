@@ -32,6 +32,23 @@
 ![Skill Information](https://github.com/jack-toast/gladexa/blob/master/images/Skill%20Information.png?raw=true)
 
 #### 5. Interaction Model
+
+Apparently Draw.io has pokemon icons, so I'll be using those to explain how **Intents** and **Slots** work.
+
+![Pokemans](https://github.com/jack-toast/gladexa/blob/master/images/pokemon.png?raw=true)
+
+
+
+og: rattata, pidgey, magicarpet.
+
+ultra: dragonair, nidoking, rapidash
+
+masterball: Mewtwo, mew, zaptos
+
+When you invoke a Alexa skill, it sends out a request to the lambda function. The request has two parts that matter to us: the Intent and the Slot
+
+
+
 ##### **Intent Schema**
 
 ##### **Custom Slot Types**
