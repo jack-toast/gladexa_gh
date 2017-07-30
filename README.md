@@ -35,7 +35,7 @@
 
 Apparently [Draw.io](https://www.draw.io/) has pokemon icons, so I'll be using those to explain how **Intents** and **Slots** work.
 
-![Pokemans](https://github.com/jack-toast/gladexa/blob/master/images/pokemon.png?raw=true)
+![Pokemans](https://github.com/jack-toast/gladexa/blob/master/images/pokemon2.png?raw=true)
 
 
 For this example:
