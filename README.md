@@ -282,6 +282,8 @@ Lets set up a few S3 buckets to hold all of our datar.
 
 #### Make a bucket for this project
 
+![]()
+
 #### Start uploading things.
 
 
