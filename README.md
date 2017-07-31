@@ -9,6 +9,19 @@
 - [GLaDOS Voice Lines](https://theportalwiki.com/wiki/GLaDOS_voice_lines)
 - [Decypher Media (AlwaysBCoding) Alexa Lambda Tutorial](https://www.youtube.com/watch?v=zt9WdE5kR6g&t=697s)
 
+### What does this skill do?
+- Recites the opening lyrics to the song "Allstar" (Alexa Voice)
+- Tells the user how the one ring was made (Alexa Voice)
+- Rick-rolls (Actual song MP3)
+- Tells specific Portal quotes (GLaDOS voice)
+
+#### Example Phrases:
+- "Alexa, ask glados to tell me your favorite poem"
+- "Alexa, ask glados to tell me your origin story"
+- "Alexa, ask glados to play johns favorite song"
+- "Alexa, ask glados to play some tunes"
+- "Alexa, ask glados to tell me the interesting fact about (air, people, donating)"
+
 ### How it all works
 ![Main Diagram](https://github.com/jack-toast/gladexa/blob/master/images/overview%20diagram.png?raw=true)
 
@@ -33,9 +46,13 @@
 
 ### 5. Interaction Model
 
+![]()
+
 #### What it do?
 
-The interaction model describes how our speech is parsed into a command that is sent to the Lambda function.
+The interaction model describes how our speech is parsed into a command message that is sent to the Lambda function.
+
+The **Intents**, **Slot values**, and **Utterances** control the message that is sent.
 
 Let's take an example command and break it down.
 
@@ -45,13 +62,55 @@ Alexa, | ask | glados | to | tell me an interesting fact about | air
 ------|-----|--------|----|-----------------------------------|------
 Wake word | Linker | Invocation Name | Linker | Specifies the intent | Slot value
 
+The skill parses the above phrase and sends a JSON message to the Lambda function.
 
+By saying this phrase the following JSON message is sent:
 
+```json
+{
+  "session": {
+    "sessionId": "SessionId.UNIQUE_SESSION_ID",
+    "application": {
+      "applicationId": "amzn1.ask.skill.YOUR_APPLICATON_ID"
+    },
+    "attributes": {},
+    "user": {
+      "userId": "amzn1.ask.account.YOUR_ACCOUNT_ID_WILL_SHOW_UP_HERE"
+    },
+    "new": true
+  },
+  "request": {
+    "type": "IntentRequest",
+    "requestId": "EdwRequestId.UNIQUE_REQUEST_ID",
+    "locale": "en-US",
+    "timestamp": "2017-07-31T00:34:01Z",
+    "intent": {
+      "name": "InterestingFact",
+      "slots": {
+        "FactName": {
+          "name": "FactName",
+          "value": "air"
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}
+```
 
+For our application, we only care about the following:
 
-
-
-
+```json
+"intent": {
+  "name": "InterestingFact",
+  "slots": {
+    "FactName": {
+      "name": "FactName",
+      "value": "air"
+    }
+  }
+}
+```
 
 
 
