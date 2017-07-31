@@ -213,7 +213,7 @@ Keep in mind that it's a good idea to add more utterances later because not all 
 
 #### Update: Amazon has launched the new Skill Builder beta. This is a great tool that you should definitely use! I didn't include it here because it abstracts the usage of Intents, Slots, and Utterances a little bit. If you know how to use the raw Intents, Slots, and Utterances approach, you should have little to no issue with the Skill Builder.
 
-### 6. Interaction Model
+### 6. Configuration
 
 Select the *AWS Lambda ARN (Amazon Resource Number)* radio button.
 
