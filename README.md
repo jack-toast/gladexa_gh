@@ -294,7 +294,7 @@ Lets set up a few S3 buckets to hold all of our datar.
 
 #### Now put something in the bucket
 
-
+![asdf](https://github.com/jack-toast/gladexa/blob/master/images/S3_upload_combined.png?raw=true)
 
 
 
