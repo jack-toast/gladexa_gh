@@ -212,9 +212,11 @@ On this page, just click next.
 
 ![Lambda_triggers](https://github.com/jack-toast/gladexa/blob/master/images/Lambda_triggers.PNG?raw=true)
 
+Function name must contain only letters, numbers, hyphens, or underscores.
 
+![Lambda_configure_functions](https://github.com/jack-toast/gladexa/blob/master/images/Lambda_configure_function.PNG?raw=true)
 
-
+Just ignore the *Lambda function code* section for now. We will be editing large swaths of this code later.
 
 
 
