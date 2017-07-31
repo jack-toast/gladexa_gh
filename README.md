@@ -202,7 +202,26 @@ Amazon Lambda is a super rad cloud compute platform that will scale to any amoun
 
 Create a new Lambda Function
 
-![Lambda_create](![ConfigurationScreen](https://github.com/jack-toast/gladexa/blob/master/images/Lambda_create.PNG?raw=true)
+![Lambda_create](https://github.com/jack-toast/gladexa/blob/master/images/Lambda_create.png?raw=true)
+
+![Lambda_blueprint](https://github.com/jack-toast/gladexa/blob/master/images/Lambda_blueprint.png?raw=true)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
