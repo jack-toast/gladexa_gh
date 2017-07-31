@@ -87,147 +87,11 @@ def handle_session_end_request():
         card_title, speech_output, card_output, reprompt_text, should_end_session))
 
 # ---------------------------------------------------------------
+
+
+
 # -------------------- No man's land ----------------------------
 
-
-
-# ---------------- Handle requests to node data -----------------
-
-def convert_to_known_type(measurement_type):
-    if(measurement_type == "temperature"):
-        return "temp"
-    else:
-        return measurement_type
-
-def unit_specific_response(measurement_type, node_id, sensor_data):
-    if measurement_type == "temp":
-        return "The temperature is " + sensor_data + " degrees fahrenheit at " + node_id
-
-    elif measurement_type == "humidity":
-        return "The humidity at " + node_id + " is " + sensor_data + " percent"
-
-    elif measurement_type == "pressure":
-        return "The pressure at " + node_id + " is " + sensor_data + " pascals"
-
-    elif measurement_type == "uv" or measurement_type == "ultraviolet":
-        return node_id + " scored a whopping " + sensor_data + " on the UV index"
-
-    elif measurement_type == "ir" or measurement_type == "infrared":
-        return "I don't quite know what this means, but there were " + sensor_data + " IR units at " + node_id
-
-    elif measurement_type == "visible":
-        return "I don't quite know what this means, but there were " + sensor_data + " brightness units at " + node_id
-
-    elif measurement_type == "noise":
-        return "The volume is approximately " + sensor_data + " noise units at " + node_id
-
-    else:
-        return " Well, this is embarrassing. I didn't understand you..."
-
-def get_env_data_specific(intent, session):
-    """ Called when the user asks for env data"""
-    session_attributes = {}
-    reprompt_text = None
-    bucket = "arrowesciottest"
-    key = "data1.json"
-
-    measurement_type = intent['slots']['MeasurementType']['value']
-    measurement_type = measurement_type.lower()
-    measurement_type = measurement_type.replace("-", "")
-    measurement_type = convert_to_known_type(measurement_type)
-
-    disp_id = intent['slots']['NodeID']['value']
-
-    # Decrement the node number by 1
-    node_id = 'node' + str(int(re.findall("\d+", disp_id)[0])-1)
-
-    node_id = node_id.lower()
-
-    try:
-        response = s3.get_object(Bucket=bucket, Key=key) #returns the data1.json file as an object
-    except Exception as e:
-        print(e)
-        print("Error getting object {} from bucket {}." .format(key, bucket))
-        raise e
-
-    # Read in the data and decode it
-    read_data = response['Body'].read().decode('utf-8')
-
-    # Parse the json file into a dictionary data structure
-    parsed_data = json.loads(read_data)
-
-    should_end_session = True
-
-    disp_id = 'node ' + str(disp_id)
-
-    try:
-        sensor_data = parsed_data[node_id][measurement_type][-1]
-    except Exception as e:
-        shucks_output = "Whoops. There appears to be no valid " + str(measurement_type) + " data at " + disp_id
-
-        return build_response(session_attributes, build_speechlet_response(
-        intent['name'], shucks_output, reprompt_text, should_end_session))
-
-    speech_output = unit_specific_response(measurement_type, str(disp_id), str(sensor_data))
-
-    return build_response(session_attributes, build_speechlet_response(
-        intent['name'], speech_output, reprompt_text, should_end_session))
-
-def get_individual_skittle_count(intent, session):
-    """ Called when the user asks for a specific number of skittles """
-    session_attributes = {}
-    reprompt_text = None
-    bucket = "arrowesciottest"
-    key = "data1.json"
-
-    skittle_color = intent['slots']['Color']['value']
-
-
-    # skittle order: orange, yellow, green, purple, red
-    if skittle_color == "orange":
-        read_index = 0
-    elif skittle_color == "yellow":
-        read_index = 1
-    elif skittle_color == "green":
-        read_index = 2
-    elif skittle_color == "purple":
-        read_index = 3
-    elif skittle_color == "reed" or skittle_color == "red" or skittle_color == "read":
-        # Alexa cannot seem to understand me when I say 'red', so I have to check for a lot more options.
-        read_index = 4
-        skittle_color = "red"
-    else:
-        read_index = 5 # breaks the code.. watch out. spooky
-
-
-    try:
-        response = s3.get_object(Bucket=bucket, Key=key) #returns the data1.json file as an object
-    except Exception as e:
-        print(e)
-        print("Error getting object {} from bucket {}." .format(key, bucket))
-        raise e
-
-    # Read in the data and decode it
-    read_data = response['Body'].read().decode('utf-8')
-
-    # Parse the json file into a dictionary data structure
-    parsed_data = json.loads(read_data)
-
-    should_end_session = False
-
-    try:
-        sensor_data = parsed_data['industrial']['levels'][read_index]
-    except Exception as e:
-        shucks_output = "Well shit. We couldn't find the number of " + str(skittle_color) + " skittles."
-
-        return build_response(session_attributes, build_speechlet_response(
-        intent['name'], shucks_output, reprompt_text, should_end_session))
-
-    speech_output = "There are " + str(sensor_data) + " " + str(skittle_color) + " skittles"
-    should_end_session = True
-
-    return build_response(session_attributes, build_speechlet_response(
-        intent['name'], speech_output, reprompt_text, should_end_session))
 
 
 # ---------------------- Very serious code below -------------------------------
@@ -256,32 +120,6 @@ def get_johns_song(intent, session):
     return build_response(session_attributes, build_sound_response(
         card_title, speech_output, card_output, reprompt_text, should_end_session))
 
-def get_fact(intent, session):
-    session_attributes = {}
-    card_title = "InterestingFact"
-    reprompt_text = None
-    randy_savage = random.randint(1,3)
-
-    raw_num = intent['slots']['FactNumber']['value']
-
-    fact_num = int(re.findall("\d+", raw_num)[0])
-
-    if(fact_num == 1):
-        # air
-        speech_output = '<speak><audio src="https://s3.amazonaws.com/glados-home-automation/GLaDOS_fact_air.mp3"/></speak>'
-    elif(fact_num == 2):
-        # organ
-        speech_output = '<speak><audio src="https://s3.amazonaws.com/glados-home-automation/GLaDOS_fact_organs.mp3"/></speak>'
-    elif(fact_num == 3):
-        # train
-        speech_output = '<speak><audio src="https://s3.amazonaws.com/glados-home-automation/GLaDOS_fact_train.mp3"/><audio src="https://s3.amazonaws.com/glados-home-automation/GLaDOS_fact_train2.mp3"/></speak>'
-    else:
-        speech_output = '<speak><audio src="https://s3.amazonaws.com/glados-home-automation/GLaDOS_15_part1_into_the_fire-5.mp3"/></speak>'
-
-    card_output = 'portal facts'
-    should_end_session = False
-    return build_response(session_attributes, build_sound_response(
-        card_title, speech_output, card_output, reprompt_text, should_end_session))
 
 def get_mordor(intent, session):
     """
@@ -312,6 +150,32 @@ def get_mp3(intent,session):
     return build_response(session_attributes, build_sound_response(
         intent['name'], speech_output, reprompt_text, should_end_session))
 
+def get_fact(intent, session):
+    session_attributes = {}
+    card_title = "InterestingFact"
+    reprompt_text = None
+
+    fact_name = str(intent['slots']['FactName']['value']).lower()
+
+    if(fact_name == 'air'):
+        # air
+        speech_output = '<speak><audio src="https://s3.amazonaws.com/glados-home-automation/GLaDOS_fact_air.mp3"/></speak>'
+    elif(fact_name == 'donating'):
+        # organ
+        speech_output = '<speak><audio src="https://s3.amazonaws.com/glados-home-automation/GLaDOS_fact_organs.mp3"/></speak>'
+    elif(fact_name == 'people'):
+        # train
+        speech_output = '<speak><audio src="https://s3.amazonaws.com/glados-home-automation/GLaDOS_fact_train.mp3"/><audio src="https://s3.amazonaws.com/glados-home-automation/GLaDOS_fact_train2.mp3"/></speak>'
+    else:
+        # invalid datar
+        speech_output = '<speak><audio src="https://s3.amazonaws.com/glados-home-automation/GLaDOS_15_part1_into_the_fire-5.mp3"/></speak>'
+
+    card_output = 'portal facts'
+    should_end_session = True
+    return build_response(session_attributes, build_sound_response(
+        card_title, speech_output, card_output, reprompt_text, should_end_session))
+
+
 # --------------------------------- Events -------------------------------------
 
 def on_session_started(session_started_request, session):
@@ -340,13 +204,7 @@ def on_intent(intent_request, session):
     intent_name = intent_request['intent']['name']
 
     # Dispatch to your skill's intent handlers
-    if intent_name == "GetEnvData":
-        return get_env_data_specific(intent, session)
-
-    elif intent_name == "WhatsTheSkittleCount":
-        return get_individual_skittle_count(intent, session)
-
-    elif intent_name == "OriginStory":
+    if intent_name == "OriginStory":
         return get_mordor(intent, session)
 
     elif intent_name == "AllStar":
