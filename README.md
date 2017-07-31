@@ -95,7 +95,7 @@ By saying this phrase the following JSON message is sent to our Lambda function:
 }
 ```
 
-For our application, we only care about the following:
+For our application, we only really care about the following:
 
 ```json
 "intent": {
@@ -120,7 +120,9 @@ InterestingFact
 ```
 Basically we have a JSON object filled with all of our intent names, each labeled with the format "intent": "name"
 
-For "InterestingFact" have one slot named "FactName" that is compared to the custom slot type "FACT_NAME"
+For "InterestingFact" have one slot named "FactName" that looks at the custom slot type "FACT_NAME" to determine what to pass through.
+
+Custom slots help with situations where the Alexa voice engine might not hear you correctly, such as saying the word "red" and having it recognize what you said as the word "read",
 
 AMAZON.HelpIntent, AMAZON.CancelIntent, and AMAZON.StopIntent are included to add basic functionality such as letting you cancel out of a skill midway. This helped me cancel out of an infinite loop of Alexa reading Smash Mouth lyrics.
 
@@ -189,8 +191,22 @@ JohnsSong play johns favorite song
 InterestingFact tell me an interesting fact about {FactName}
 ```
 
+Keep in mind that it's a good idea to add more utterances later because not all people will interact with the skill using the same diction. "play johns favorite song" vs "what is johns favorite song"
 
 ### 6. Interaction Model
+
+Select the *AWS Lambda ARN (Amazon Resource Number)* radio button.
+
+Select the *North America* check box.
+
+When you're done with creating the Lambda Function, come back here and enter your ARN. Army of squirrels marks the spot.
+
+:shipit::shipit::shipit::shipit::shipit::shipit:
+
+:shipit::shipit::shipit::shipit::shipit::shipit:
+
+:shipit::shipit::shipit::shipit::shipit::shipit:
+
 
 ![ConfigurationScreen](https://github.com/jack-toast/gladexa/blob/master/images/Configuration.PNG?raw=true)
 
@@ -230,15 +246,17 @@ Now back in Lambda land, set **Role** to *Choose an existing role* and **Existin
 
 ![Lambda_function_handler_and_role_redux](https://github.com/jack-toast/gladexa/blob/master/images/Lambda_function_handler_and_role_redux.PNG?raw=true)
 
-Last and certainly least, the Review page. Just click *Create function*...
+Last and certainly least, the Review page. Just click *Create function*
 
 ![Lambda_Review](https://github.com/jack-toast/gladexa/blob/master/images/Lambda_Review.PNG?raw=true)
 
 Congrats, have just created a Lambda function!
 
+### Return the ARN (top right of screen) to the army of squirrels. Do it now.
+
 Now we need to setup an S3 bucket to hold all of the datars.
 
-This part isn't hard, but I'm going to go watch Game of Thrones, so yeah, I'll be back tomorrow. 
+This part isn't hard, but I'm going to go watch Game of Thrones, so yeah, I'll be back tomorrow.
 
 
 
