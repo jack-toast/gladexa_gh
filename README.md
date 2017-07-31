@@ -264,7 +264,9 @@ Last and certainly least, the Review page. Just click *Create function*
 
 ##### Copy the ARN at the top right of the screen, go back to your Alexa Skill's Configuration tab, and paste it in the endpoint location field.
 
-Congrats, have just created a Lambda function!
+![Lambda_Review](https://github.com/jack-toast/gladexa/blob/master/images/Configuration_ARN.PNG?raw=true)
+
+#### Congrats, have just created a Lambda function!
 
 
 
