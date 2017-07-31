@@ -234,9 +234,11 @@ Last and certainly least, the Review page. Just click *Create function*...
 
 ![Lambda_Review](https://github.com/jack-toast/gladexa/blob/master/images/Lambda_Review.PNG?raw=true)
 
-asdf
+Congrats, have just created a Lambda function!
 
+Now we need to setup an S3 bucket to hold all of the datars.
 
+This part isn't hard, but I'm going to go watch Game of Thrones, so yeah, I'll be back tomorrow. 
 
 
 
