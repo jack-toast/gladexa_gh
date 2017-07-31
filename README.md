@@ -209,7 +209,9 @@ JohnsSong play johns favorite song
 InterestingFact tell me an interesting fact about {FactName}
 ```
 
-Keep in mind that it's a good idea to add more utterances later because not all people will interact with the skill using the same diction. "play johns favorite song" vs "what is johns favorite song"
+Keep in mind that it's a good idea to add more utterances later because not all people will interact with the skill using the same diction. "play johns favorite song" vs "what is johns favorite song".
+
+#### Update: Amazon has launched the new Skill Builder beta. This is a great tool that you should definitely use! I didn't include it here because it abstracts the usage of Intents, Slots, and Utterances a little bit. If you know how to use the raw Intents, Slots, and Utterances approach, you should have little to no issue with the Skill Builder.
 
 ### 6. Interaction Model
 
@@ -224,7 +226,7 @@ When you're done with creating the Lambda Function, this is where you'll input y
 
 Well that was quick...
 
-### 7. Lambda Configuration
+## Lambda Configuration
 
 Amazon Lambda is a super rad cloud compute platform that will scale to any amount of demand you throw at it. For our small use case, it's just a simple to use platform that will run our python script.
 
@@ -252,6 +254,8 @@ For **Role** select Create a Custom Role. This will open up a new tab...
 
 We're now in the magical realm of IAM. Spend as little time here as possible. Set **IAM Role** to *Create a new IAM Role* and **Role Name** to *lambda_basic_execution*
 
+Click ***Allow***
+
 ![Lambda_execution_role_permission](https://github.com/jack-toast/gladexa/blob/master/images/Lambda_execution_role_permission.png?raw=true)
 
 Now back in Lambda land, set **Role** to *Choose an existing role* and **Existing role** to *lambda_basic_execution*
@@ -262,20 +266,23 @@ Last and certainly least, the Review page. Just click *Create function*
 
 ![Lambda_Review](https://github.com/jack-toast/gladexa/blob/master/images/Lambda_Review.PNG?raw=true)
 
-##### Copy the ARN at the top right of the screen, go back to your Alexa Skill's Configuration tab, and paste it in the endpoint location field.
+##### Copy the ARN at the top right of the screen, go back to your Alexa Skill's Configuration tab, and paste it in the endpoint location field. Congrats, have just created a Lambda function!
+
 
 ![Configuration_ARN](https://github.com/jack-toast/gladexa/blob/master/images/Configuration_ARN.PNG?raw=true)
 
-#### Congrats, have just created a Lambda function!
 
+## Next step - Simple Storage Service (S3) Setup
 
+Lets set up a few S3 buckets to hold all of our datar.
 
-Now we need to setup an S3 bucket to hold all of the datars.
+### Go to [Amazon S3](https://aws.amazon.com/s3/) >> sign in with your developer account
 
-This part isn't hard, but I'm going to go watch Game of Thrones, so yeah, I'll be back tomorrow.
+#### Follow the getting started guide and get used to the GUI.
 
-I'm back from GoT, so lets get back to typing.
+#### Make a bucket for this project
 
+#### Start uploading things.
 
 
 
