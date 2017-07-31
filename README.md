@@ -203,9 +203,6 @@ When you're done with creating the Lambda Function, come back here and enter you
 
 :shipit::shipit::shipit::shipit::shipit::shipit:
 
-:shipit::shipit::shipit::shipit::shipit::shipit:
-
-:shipit::shipit::shipit::shipit::shipit::shipit:
 
 
 ![ConfigurationScreen](https://github.com/jack-toast/gladexa/blob/master/images/Configuration.PNG?raw=true)
