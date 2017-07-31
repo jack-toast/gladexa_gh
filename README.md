@@ -58,12 +58,10 @@ Let's take an example command and break it down.
 *"Alexa, ask glados to tell me an interesting fact about air"*
 
 Alexa, | ask | glados | to | tell me an interesting fact about | air
-------|-----|--------|----|-----------------------------------|------
+---|---|---|---|---|---
 Wake word | Linker | Invocation Name | Linker | Specifies the intent | Slot value
 
-The skill parses the above phrase and sends a JSON message to the Lambda function.
-
-By saying this phrase the following JSON message is sent:
+By saying this phrase the following JSON message is sent to our Lambda function:
 
 ```json
 {
@@ -111,8 +109,62 @@ For our application, we only care about the following:
 }
 ```
 
+#### We control all of this with the Intents, Slots, and Utterances
 
+For this example there are four different intents:
+- AllStar
+- OriginStory
+- JohnsSong
+- InterestingFact {FactName}
 
+Basically we have a JSON object filled with intent names, each labeled "intent": "name"
+
+For an intent that uses a slot, we must specify the slots as well.
+
+For "InterestingFact" have one slot named "FactName" that is compared to the custom slot type "FACT_NAME"
+
+Beyond showing it I don't know how else to explain it, so here you go:
+
+```json
+{
+  "intents": [
+    {
+      "intent": "AllStar"
+    },
+    {
+      "intent": "InterestingFact",
+      "slots": [
+        {
+          "name": "FactName",
+          "type": "FACT_NAME"
+        }
+      ]
+    },
+    {
+      "intent": "OriginStory"
+    },
+    {
+      "intent": "PlaySoundFile"
+    },
+    {
+      "intent": "JohnsSong"
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    },
+    {
+      "intent": "AMAZON.CancelIntent"
+    },
+    {
+      "intent": "AMAZON.StopIntent"
+    }
+  ]
+}
+```
+
+AMAZON.HelpIntent, AMAZON.CancelIntent, and AMAZON.StopIntent are included by default.
+
+These add basic functionality such as letting you cancel out of the skill midway. Very helpful for debugging. 
 
 
 

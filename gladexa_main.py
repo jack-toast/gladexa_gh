@@ -137,18 +137,6 @@ def get_mordor(intent, session):
     return build_response(session_attributes, build_speechlet_response(
         intent['name'], speech_output, reprompt_text, should_end_session))
 
-def get_mp3(intent,session):
-    """
-    Call Phrase: TalkingOver
-    """
-    session_attributes = {}
-    reprompt_text = None
-
-    speech_output = '<speak><audio src="https://s3.amazonaws.com/glados-home-automation/GLaDOS_00_part1_entry-1.mp3"/></speak>'
-
-    should_end_session = False
-    return build_response(session_attributes, build_sound_response(
-        intent['name'], speech_output, reprompt_text, should_end_session))
 
 def get_fact(intent, session):
     session_attributes = {}
@@ -212,9 +200,6 @@ def on_intent(intent_request, session):
 
     elif intent_name == "JohnsSong":
         return get_johns_song(intent, session)
-
-    elif intent_name == "PlaySoundFile":
-        return get_mp3(intent, session)
 
     elif intent_name == "InterestingFact":
         return get_fact(intent, session)
