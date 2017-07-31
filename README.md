@@ -189,9 +189,17 @@ JohnsSong play johns favorite song
 InterestingFact tell me an interesting fact about {FactName}
 ```
 
-We've made it through section 4. Now we're off to the wonderful world of Lambda.
 
 ### 6. Interaction Model
+
+![ConfigurationScreen](https://github.com/jack-toast/gladexa/blob/master/images/Configuration.PNG?raw=true)
+
+Well that was quick...
+
+### 7. Lambda Configuration
+
+Amazon Lambda is a super rad cloud compute platform that will scale to any amount of demand you throw at it. For our small use case, it's just a simple to use platform that will run our python script.
+
 
 
 
