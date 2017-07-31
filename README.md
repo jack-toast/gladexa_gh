@@ -200,12 +200,17 @@ Well that was quick...
 
 Amazon Lambda is a super rad cloud compute platform that will scale to any amount of demand you throw at it. For our small use case, it's just a simple to use platform that will run our python script.
 
-Create a new Lambda Function
+Create a new Lambda Function.
 
 ![Lambda_create](https://github.com/jack-toast/gladexa/blob/master/images/Lambda_create.png?raw=true)
 
+Filter the blueprints using the keyword Alexa and the runtime Python 2.7.
+
 ![Lambda_blueprint](https://github.com/jack-toast/gladexa/blob/master/images/Lambda_blueprint.png?raw=true)
 
+Just click next.
+
+![Lambda_triggers](https://github.com/jack-toast/gladexa/blob/master/images/Lambda_triggers.png?raw=true)
 
 
 
