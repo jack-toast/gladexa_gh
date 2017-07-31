@@ -218,7 +218,21 @@ Function name must contain only letters, numbers, hyphens, or underscores.
 
 Just ignore the *Lambda function code* section for now. We will be editing large swaths of this code later.
 
+For **Role** select Create a Custom Role. This will open up a new tab...
 
+![Lambda_function_handler](https://github.com/jack-toast/gladexa/blob/master/images/Lambda_function_handler_and_role.PNG?raw=true)
+
+We're now in the magical realm of IAM. Spend as little time here as possible. Set **IAM Role** to *Create a new IAM Role* and **Role Name** to *lambda_basic_execution*
+
+![Lambda_execution_role_permission](https://github.com/jack-toast/gladexa/blob/master/images/Lambda_execution_role_permission.png?raw=true)
+
+Now back in Lambda land, set **Role** to *Choose an existing role* and **Existing role** to *lambda_basic_execution*
+
+![Lambda_function_handler_and_role_redux](https://github.com/jack-toast/gladexa/blob/master/images/Lambda_function_handler_and_role_redux.PNG?raw=true)
+
+Last and certainly least, the Review page. Just click *Create function*...
+
+![Lambda_Review](https://github.com/jack-toast/gladexa/blob/master/images/Lambda_Review.PNG?raw=true)
 
 
 
