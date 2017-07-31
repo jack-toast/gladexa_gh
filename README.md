@@ -284,6 +284,9 @@ Lets set up a few S3 buckets to hold all of our datar.
 
 ![S3_create_bucket](https://github.com/jack-toast/gladexa/blob/master/images/S3_create_bucket.PNG?raw=true)
 
+![S3_create_bucket_steps](https://github.com/jack-toast/gladexa/blob/master/images/S3_create_bucket_combined.png?raw=true)
+
+
 #### Start uploading things.
 
 asdf
