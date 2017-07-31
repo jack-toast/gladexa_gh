@@ -46,7 +46,7 @@
 
 ### 5. Interaction Model
 
-![]()
+![InteractionModelScreenGrab](https://github.com/jack-toast/gladexa/blob/master/images/InteractionModel.PNG?raw=true)
 
 #### What it do?
 
