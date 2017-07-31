@@ -210,7 +210,7 @@ Filter the blueprints using the keyword Alexa and the runtime Python 2.7.
 
 Just click next.
 
-![Lambda_triggers](https://github.com/jack-toast/gladexa/blob/master/images/Lambda_triggers.png?raw=true)
+![Lambda_triggers](https://github.com/jack-toast/gladexa/blob/master/images/Lambda_triggers.PNG?raw=true)
 
 
 
