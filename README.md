@@ -228,7 +228,7 @@ Well that was quick...
 
 ## Lambda Configuration
 
-Amazon Lambda is a super rad cloud compute platform that will scale to any amount of demand you throw at it. For our small use case, it's just a simple to use platform that will run our python script.
+Amazon Lambda is a super rad cloud compute platform that will scale to any amount of demand you throw at it. For our small use case, it's just a simple to use platform that will run our python script. As for the server location, select N. Virginia as it's the only AWS location that supports Alexa Skills.
 
 Create a new Lambda Function.
 
@@ -284,11 +284,15 @@ Lets set up a few S3 buckets to hold all of our datar.
 
 ![S3_create_bucket](https://github.com/jack-toast/gladexa/blob/master/images/S3_create_bucket.PNG?raw=true)
 
-#### 
+#### Bucket Creation Settings (by pane):
+1. Bucket Name must be unique, region should be closest to your Lambda server location (N. Virginia).
+2. Skippable, but useful for debugging or logging usage.
+3. You can grant access to the whole bucket here or you can do it object by object later. I've chosen this method as an example for the inherent simplicity.
+4. Should look roughly like mine. Just click *Create bucket*
 
 ![S3_create_bucket_steps](https://github.com/jack-toast/gladexa/blob/master/images/S3_create_bucket_combined.png?raw=true)
 
-
+#### Now put something in the bucket
 
 
 
