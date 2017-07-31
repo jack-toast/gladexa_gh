@@ -204,13 +204,14 @@ Create a new Lambda Function.
 
 ![Lambda_create](https://github.com/jack-toast/gladexa/blob/master/images/Lambda_create.png?raw=true)
 
-Filter the blueprints using the keyword Alexa and the runtime Python 2.7.
+Filter the blueprints using the keyword Alexa and the runtime Python 2.7. Select *alexa-skills-kit-color-expert-python*
 
 ![Lambda_blueprint](https://github.com/jack-toast/gladexa/blob/master/images/Lambda_blueprint.png?raw=true)
 
-Just click next.
+On this page, just click next.
 
 ![Lambda_triggers](https://github.com/jack-toast/gladexa/blob/master/images/Lambda_triggers.PNG?raw=true)
+
 
 
 
