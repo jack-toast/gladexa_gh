@@ -5,10 +5,10 @@
     },
     {
       "intent": "InterestingFact",
-      "slots" : [
+      "slots": [
         {
-          "name" : "FactNumber",
-          "type" : "FACT_NUMBER"
+          "name": "FactName",
+          "type": "FACT_NAME"
         }
       ]
     },
