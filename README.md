@@ -21,6 +21,24 @@
 - "Alexa, ask glados to play johns favorite song"
 - "Alexa, ask glados to tell me the interesting fact about (air, people, donating)"
 
+#### Conexant Raspberry Pi setup
+##### Terminal 1
+```
+cd ~/Desktop/alexa-avs-sample-app/samples/companionService
+npm start
+
+```
+##### Terminal 2
+```
+cd ~/Desktop/alexa-avs-sample-app/samples/javaclient
+mvn exec:exec
+
+```
+##### Terminal 3
+```
+cd ~/Desktop/alexa-avs-sample-app/samples/wakeWordAgent/src
+sudo ./wakeWordAgent -e gpio
+```
 ### How it all works
 ![Main Diagram](https://github.com/jack-toast/gladexa/blob/master/images/overview%20diagram.png?raw=true)
 
@@ -199,10 +217,7 @@ Select the *AWS Lambda ARN (Amazon Resource Number)* radio button.
 
 Select the *North America* check box.
 
-When you're done with creating the Lambda Function, come back here and enter your ARN. Army of squirrels marks the spot.
-
-:shipit::shipit::shipit::shipit::shipit::shipit:
-
+When you're done with creating the Lambda Function, this is where you'll input your ARN.
 
 
 ![ConfigurationScreen](https://github.com/jack-toast/gladexa/blob/master/images/Configuration.PNG?raw=true)
@@ -247,13 +262,18 @@ Last and certainly least, the Review page. Just click *Create function*
 
 ![Lambda_Review](https://github.com/jack-toast/gladexa/blob/master/images/Lambda_Review.PNG?raw=true)
 
+##### Copy the ARN at the top right of the screen, go back to your Alexa Skill's Configuration tab, and paste it in the endpoint location field.
+
 Congrats, have just created a Lambda function!
 
-### Return the ARN (top right of screen) to the army of squirrels. Do it now.
+
 
 Now we need to setup an S3 bucket to hold all of the datars.
 
 This part isn't hard, but I'm going to go watch Game of Thrones, so yeah, I'll be back tomorrow.
+
+I'm back from GoT, so lets get back to typing.
+
 
 
 
