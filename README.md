@@ -19,7 +19,6 @@
 - "Alexa, ask glados to tell me your favorite poem"
 - "Alexa, ask glados to tell me your origin story"
 - "Alexa, ask glados to play johns favorite song"
-- "Alexa, ask glados to play some tunes"
 - "Alexa, ask glados to tell me the interesting fact about (air, people, donating)"
 
 ### How it all works
@@ -38,8 +37,8 @@
 ### 4. Skill Information
   - Skill Type: Custom Interaction Model
   - Language: English (U.S. or U.K.) or German
-  - Name: Whatever you want. This will show in the Alexa store thing if you publish the skill. I'm not publishing, so I named it for my own organization.
-  - Invocation Name: I used "glados". Make sure it's something that the Alexa voice engine can understand phonetically
+  - Name: Whatever you want. This will show in the Alexa store thing if you publish the skill. I'm not publishing, so I named it something that's easy to recognize.
+  - Invocation Name: I used "glados". Make sure it's something that the Alexa voice engine can understand phonetically.
   - Global Fields: Ignore
   - Click *next*
 ![Skill Information](https://github.com/jack-toast/gladexa/blob/master/images/Skill%20Information.png?raw=true)
@@ -50,13 +49,13 @@
 
 #### What it do?
 
-The interaction model describes how our speech is parsed into a command message that is sent to the Lambda function.
+The interaction model describes how our speech is parsed into the command message that is sent to the Lambda function.
 
 The **Intents**, **Slot values**, and **Utterances** control the message that is sent.
 
 Let's take an example command and break it down.
 
-*"Alexa, ask glados to tell me the interesting fact about air"*
+*"Alexa, ask glados to tell me an interesting fact about air"*
 
 Alexa, | ask | glados | to | tell me an interesting fact about | air
 ------|-----|--------|----|-----------------------------------|------
