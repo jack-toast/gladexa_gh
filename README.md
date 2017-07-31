@@ -112,18 +112,19 @@ For our application, we only care about the following:
 #### We control all of this with the Intents, Slots, and Utterances
 
 For this example there are four different intents:
-- AllStar
-- OriginStory
-- JohnsSong
-- InterestingFact {FactName}
-
-Basically we have a JSON object filled with intent names, each labeled "intent": "name"
-
-For an intent that uses a slot, we must specify the slots as well.
+```
+AllStar
+OriginStory
+JohnsSong
+InterestingFact
+```
+Basically we have a JSON object filled with all of our intent names, each labeled with the format "intent": "name"
 
 For "InterestingFact" have one slot named "FactName" that is compared to the custom slot type "FACT_NAME"
 
-Beyond showing it I don't know how else to explain it, so here you go:
+AMAZON.HelpIntent, AMAZON.CancelIntent, and AMAZON.StopIntent are included to add basic functionality such as letting you cancel out of a skill midway. This helped me cancel out of an infinite loop of Alexa reading Smash Mouth lyrics.
+
+#### Intents Schema
 
 ```json
 {
@@ -162,10 +163,35 @@ Beyond showing it I don't know how else to explain it, so here you go:
 }
 ```
 
-AMAZON.HelpIntent, AMAZON.CancelIntent, and AMAZON.StopIntent are included by default.
+#### Custom Slot Types
 
-These add basic functionality such as letting you cancel out of the skill midway. Very helpful for debugging. 
+We only need one of these, but if your other intents that require slots, you would add them here.
 
+##### Type
+```
+FACT_NAME
+```
+
+##### Values:
+```
+donating
+air
+people
+```
+
+#### Example Utterances
+
+This is where you enter example trigger phrases. For this project, I've entered the following phrases:
+```
+AllStar your favorite poem
+OriginStory your origin story
+JohnsSong play johns favorite song
+InterestingFact tell me an interesting fact about {FactName}
+```
+
+We've made it through section 4. Now we're off to the wonderful world of Lambda.
+
+### 6. Interaction Model
 
 
 
