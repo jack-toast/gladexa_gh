@@ -294,6 +294,15 @@ Lets set up a few S3 buckets to hold all of our datar.
 
 #### Now put something in the bucket
 
+#### Whoa whoa whoa, first we have to make sure our MP3's are correctly formatted.
+
+##### MP3 Constraints:
+Attribute | 
+
+I'm on Windows, so I'm going to use Audacity to take care of this. If you're on Linux or Mac, look at this guide.
+
+Should be fairly self-explanatory, just make sure that the object is publicly readable.
+
 ![asdf](https://github.com/jack-toast/gladexa/blob/master/images/S3_upload_combined.png?raw=true)
 
 
