@@ -143,15 +143,18 @@ def get_fact(intent, session):
     card_title = "InterestingFact"
     reprompt_text = None
 
-    fact_name = str(intent['slots']['FactName']['value']).lower()
+    if(intent['slots']['FactName']['value'] == None):
+        fact_name == 'donating'
+    else:
+        fact_name = str(intent['slots']['FactName']['value']).lower()
 
-    if(fact_name == 'air'):
+    if fact_name == 'air':
         # air
         speech_output = '<speak><audio src="https://s3.amazonaws.com/glados-home-automation/GLaDOS_fact_air.mp3"/></speak>'
-    elif(fact_name == 'donating'):
+    elif fact_name == 'donating':
         # organ
         speech_output = '<speak><audio src="https://s3.amazonaws.com/glados-home-automation/GLaDOS_fact_organs.mp3"/></speak>'
-    elif(fact_name == 'people'):
+    elif fact_name == 'people':
         # train
         speech_output = '<speak><audio src="https://s3.amazonaws.com/glados-home-automation/GLaDOS_fact_train.mp3"/><audio src="https://s3.amazonaws.com/glados-home-automation/GLaDOS_fact_train2.mp3"/></speak>'
     else:
