@@ -296,14 +296,53 @@ Lets set up a few S3 buckets to hold all of our datar.
 
 #### Whoa whoa whoa, first we have to make sure our MP3's are correctly formatted.
 
+<<<<<<< HEAD
 ##### MP3 Constraints:
 Attribute |
+=======
+We're going to use Speech Synthesis Markup Language (SSML) to pass MP3's to our Alexa skill. [Click around these parts for more info on SSML and what you can do with it.](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/speech-synthesis-markup-language-ssml-reference)
+>>>>>>> 2821b18ab63b3f454c7d43010bd15f1456bd52e6
 
-I'm on Windows, so I'm going to use Audacity to take care of this. If you're on Linux or Mac, look at this guide.
+##### MP3 Formatting/Constraints:
+- The MP3 must be hosted at an Internet-accessible HTTPS endpoint. HTTPS is required, and the domain hosting the MP3 file must present a valid, trusted SSL certificate. Self-signed certificates cannot be used.
+- The MP3 must not contain any customer-specific or other sensitive information.
+- The MP3 must be a valid MP3 file (MPEG version 2).
+- The audio file cannot be longer than ninety (90) seconds.
+- The bit rate must be 48 kbps. Note that this bit rate gives a good result when used with spoken content, but is generally not a high enough quality for music.
+- The sample rate must be 16000 Hz.
+
+I'm on Windows, so I'm going to use Audacity to take care of this. If you're on Linux or Mac, look at the [SSML reference page](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/speech-synthesis-markup-language-ssml-reference).
+
+In order to export MP3's from Audacity you need the [Lame library](http://lame.buanzo.org/#lamewindl)
+
+Once you have that, just do this:
+1. Open the file to convert.
+2. Set the Project Rate in the lower-left corner to 16000.
+3. Click File > Export Audio and change the Save as type to MP3 Files.
+4. Click Options, set the Quality to 48 kbps and the Bit Rate Mode to Constant.
 
 Should be fairly self-explanatory, just make sure that the object is publicly readable.
 
 ![asdf](https://github.com/jack-toast/gladexa/blob/master/images/S3_upload_combined.png?raw=true)
+
+
+#### Time to write the python script
+
+At this point we have our S3 Bucket and Alexa Skill set up properly. Now we need to write/configure our python script.
+
+I'd start by taking my code and modifying it -just make sure to change the https addresses to access your files.
+
+So how does the python script work?
+
+When the Alexa Skill calls your Lambda function, it triggers ***lambda_handler***. It calls this function, passing it the event and the context.
+
+The JSON body of the request (what we care about) is provided in the event parameter.
+
+
+
+
+
+
 
 
 
