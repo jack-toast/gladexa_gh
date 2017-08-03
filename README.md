@@ -296,12 +296,7 @@ Lets set up a few S3 buckets to hold all of our datar.
 
 #### Whoa whoa whoa, first we have to make sure our MP3's are correctly formatted.
 
-<<<<<<< HEAD
-##### MP3 Constraints:
-Attribute |
-=======
 We're going to use Speech Synthesis Markup Language (SSML) to pass MP3's to our Alexa skill. [Click around these parts for more info on SSML and what you can do with it.](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/speech-synthesis-markup-language-ssml-reference)
->>>>>>> 2821b18ab63b3f454c7d43010bd15f1456bd52e6
 
 ##### MP3 Formatting/Constraints:
 - The MP3 must be hosted at an Internet-accessible HTTPS endpoint. HTTPS is required, and the domain hosting the MP3 file must present a valid, trusted SSL certificate. Self-signed certificates cannot be used.
