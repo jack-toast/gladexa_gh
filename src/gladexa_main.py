@@ -17,6 +17,7 @@ s3 = boto3.client('s3')
 
 # --------------- Helpers that build all of the responses ----------------------
 
+
 def build_speechlet_response(title, output, reprompt_text, should_end_session):
     return {
         'outputSpeech': {
@@ -37,7 +38,9 @@ def build_speechlet_response(title, output, reprompt_text, should_end_session):
         'shouldEndSession': should_end_session
     }
 
-def build_sound_response(title, speech_output, card_output, reprompt_text, should_end_session):
+
+def build_sound_response(title, speech_output, card_output, reprompt_text,
+                         should_end_session):
     return {
         'outputSpeech': {
             'type': 'SSML',
@@ -57,6 +60,7 @@ def build_sound_response(title, speech_output, card_output, reprompt_text, shoul
         'shouldEndSession': should_end_session
     }
 
+
 def build_response(session_attributes, speechlet_response):
     return {
         'version': '1.0',
@@ -64,7 +68,9 @@ def build_response(session_attributes, speechlet_response):
         'response': speechlet_response
     }
 
+
 # --------------- Hello and Goodbye Functions ------------------
+
 
 def get_welcome_response():
     session_attributes = {}
@@ -73,8 +79,11 @@ def get_welcome_response():
     card_output = 'playing GLaDOS_00_part1_entry-1.mp3'
     reprompt_text = '<speak><audio src="https://s3.amazonaws.com/glados-home-automation/GLaDOS_escape_01_part1_nag05-1.mp3"/></speak>'
     should_end_session = False
-    return build_response(session_attributes, build_sound_response(
-        card_title, speech_output, card_output, reprompt_text, should_end_session))
+    return build_response(session_attributes,
+                          build_sound_response(card_title, speech_output,
+                                               card_output, reprompt_text,
+                                               should_end_session))
+
 
 def handle_session_end_request():
     session_attributes = {}
@@ -83,18 +92,18 @@ def handle_session_end_request():
     card_output = 'playing GLaDOS_00_part1_entry-1.mp3'
     reprompt_text = '<speak><audio src="https://s3.amazonaws.com/glados-home-automation/GLaDOS_escape_01_part1_nag05-1.mp3"/></speak>'
     should_end_session = True
-    return build_response(session_attributes, build_sound_response(
-        card_title, speech_output, card_output, reprompt_text, should_end_session))
+    return build_response(session_attributes,
+                          build_sound_response(card_title, speech_output,
+                                               card_output, reprompt_text,
+                                               should_end_session))
+
 
 # ---------------------------------------------------------------
 
-
-
 # -------------------- No man's land ----------------------------
 
-
-
 # ---------------------- Very serious code below -------------------------------
+
 
 def get_smash(intent, session):
     """ This function is extremely important, do not remove. """
@@ -107,8 +116,11 @@ def get_smash(intent, session):
         " In the shape of an L on her forehead"
 
     should_end_session = False
-    return build_response(session_attributes, build_speechlet_response(
-        intent['name'], speech_output, reprompt_text, should_end_session))
+    return build_response(
+        session_attributes,
+        build_speechlet_response(intent['name'], speech_output, reprompt_text,
+                                 should_end_session))
+
 
 def get_johns_song(intent, session):
     session_attributes = {}
@@ -117,8 +129,10 @@ def get_johns_song(intent, session):
     card_output = 'playing Ricky the kid'
     reprompt_text = '<speak><audio src="https://s3.amazonaws.com/glados-home-automation/GLaDOS_escape_01_part1_nag05-1.mp3"/></speak>'
     should_end_session = False
-    return build_response(session_attributes, build_sound_response(
-        card_title, speech_output, card_output, reprompt_text, should_end_session))
+    return build_response(session_attributes,
+                          build_sound_response(card_title, speech_output,
+                                               card_output, reprompt_text,
+                                               should_end_session))
 
 
 def get_mordor(intent, session):
@@ -134,8 +148,10 @@ def get_mordor(intent, session):
     "to be subject wholly to it and to last only so long as it too should last. "
 
     should_end_session = False
-    return build_response(session_attributes, build_speechlet_response(
-        intent['name'], speech_output, reprompt_text, should_end_session))
+    return build_response(
+        session_attributes,
+        build_speechlet_response(intent['name'], speech_output, reprompt_text,
+                                 should_end_session))
 
 
 def get_fact(intent, session):
@@ -144,53 +160,65 @@ def get_fact(intent, session):
     reprompt_text = None
 
     fact_name = intent['slots']['FactName']['value']
+
     if fact_name == None:
-        fact_name = 'air'
+        randy_savage = random.randint(1, 3)
+        if randy_savage == 1:
+            fact_name = 'air'
+        elif randy_savage == 2:
+            fact_name = 'donating'
+        else:
+            fact_name = 'people'
     else:
         fact_name = str(fact_name).lower()
 
-    if fact_name == 'air':
-        # air
+    if fact_name == 'air':  # air
         speech_output = '<speak><audio src="https://s3.amazonaws.com/glados-home-automation/GLaDOS_fact_air.mp3"/></speak>'
-    elif fact_name == 'donating':
-        # organ
+        card_output = 'Air Fact'
+    elif fact_name == 'donating':  # organ
         speech_output = '<speak><audio src="https://s3.amazonaws.com/glados-home-automation/GLaDOS_fact_organs.mp3"/></speak>'
-    elif fact_name == 'people':
-        # train
+        card_output = 'Donation Fact'
+    elif fact_name == 'people':  # train
         speech_output = '<speak><audio src="https://s3.amazonaws.com/glados-home-automation/GLaDOS_fact_train.mp3"/><audio src="https://s3.amazonaws.com/glados-home-automation/GLaDOS_fact_train2.mp3"/></speak>'
-    else:
-        # invalid datar
+        card_output = 'People Fact'
+    else:  # invalid datar
         speech_output = '<speak><audio src="https://s3.amazonaws.com/glados-home-automation/GLaDOS_15_part1_into_the_fire-5.mp3"/></speak>'
+        card_output = 'No Facts :('
 
-    card_output = 'portal facts'
     should_end_session = True
-    return build_response(session_attributes, build_sound_response(
-        card_title, speech_output, card_output, reprompt_text, should_end_session))
+    return build_response(session_attributes,
+                          build_sound_response(card_title, speech_output,
+                                               card_output, reprompt_text,
+                                               should_end_session))
 
 
 # --------------------------------- Events -------------------------------------
 
+
 def on_session_started(session_started_request, session):
     """ Called when the session starts """
 
-    print("on_session_started requestId=" + session_started_request['requestId']
-          + ", sessionId=" + session['sessionId'])
+    print("on_session_started requestId=" +
+          session_started_request['requestId'] + ", sessionId=" +
+          session['sessionId'])
+
 
 def on_launch(launch_request, session):
     """ Called when the user launches the skill without specifying what they
     want
     """
 
-    print("on_launch requestId=" + launch_request['requestId'] +
-          ", sessionId=" + session['sessionId'])
+    print("on_launch requestId=" + launch_request['requestId'] + ", sessionId="
+          + session['sessionId'])
     # Dispatch to your skill's launch
     return get_welcome_response()
+
 
 def on_intent(intent_request, session):
     """ Called when the user specifies an intent for this skill """
 
-    print("on_intent requestId=" + intent_request['requestId'] +
-          ", sessionId=" + session['sessionId'])
+    print("on_intent requestId=" + intent_request['requestId'] + ", sessionId="
+          + session['sessionId'])
 
     intent = intent_request['intent']
     intent_name = intent_request['intent']['name']
@@ -217,6 +245,7 @@ def on_intent(intent_request, session):
     else:
         raise ValueError("Invalid intent")
 
+
 def on_session_ended(session_ended_request, session):
     """ Called when the user ends the session.
     Is not called when the skill returns should_end_session=true
@@ -224,7 +253,9 @@ def on_session_ended(session_ended_request, session):
     print("on_session_ended requestId=" + session_ended_request['requestId'] +
           ", sessionId=" + session['sessionId'])
 
+
 # --------------- Main handler ------------------
+
 
 def lambda_handler(event, context):
     """ Route the incoming request based on type (LaunchRequest, IntentRequest,
@@ -232,7 +263,6 @@ def lambda_handler(event, context):
     """
     print("event.session.application.applicationId=" +
           event['session']['application']['applicationId'])
-
     """
     Uncomment this if statement and populate with your skill's application ID to
     prevent someone else from configuring a skill that sends requests to this
@@ -245,8 +275,9 @@ def lambda_handler(event, context):
     """
 
     if event['session']['new']:
-        on_session_started({'requestId': event['request']['requestId']},
-                           event['session'])
+        on_session_started({
+            'requestId': event['request']['requestId']
+        }, event['session'])
 
     if event['request']['type'] == "LaunchRequest":
         return on_launch(event['request'], event['session'])
