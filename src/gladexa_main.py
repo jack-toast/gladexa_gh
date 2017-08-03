@@ -241,8 +241,7 @@ def lambda_handler(event, context):
     """
 
     if event['session']['new']:
-        on_session_started({'requestId': event['request']['requestId']},
-                           event['session'])
+        on_session_started({'requestId': event['request']['requestId']},event['session'])
 
     if event['request']['type'] == "LaunchRequest":
         return on_launch(event['request'], event['session'])
