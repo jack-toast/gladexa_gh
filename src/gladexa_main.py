@@ -143,10 +143,11 @@ def get_fact(intent, session):
     card_title = "InterestingFact"
     reprompt_text = None
 
-    if(intent['slots']['FactName']['value'] == None):
-        fact_name == 'donating'
+    fact_name = intent['slots']['FactName']['value']
+    if fact_name == None:
+        fact_name = 'air'
     else:
-        fact_name = str(intent['slots']['FactName']['value']).lower()
+        fact_name = str(fact_name).lower()
 
     if fact_name == 'air':
         # air
