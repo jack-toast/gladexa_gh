@@ -297,7 +297,7 @@ Lets set up a few S3 buckets to hold all of our datar.
 #### Whoa whoa whoa, first we have to make sure our MP3's are correctly formatted.
 
 ##### MP3 Constraints:
-Attribute | 
+Attribute |
 
 I'm on Windows, so I'm going to use Audacity to take care of this. If you're on Linux or Mac, look at this guide.
 
