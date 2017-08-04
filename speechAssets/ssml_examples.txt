@@ -1,4 +1,4 @@
 <speak><audio src="https://s3.amazonaws.com/glados-home-automation/GLaDOS_00_part1_entry-1.mp3"/></speak>
 
-alexa swears:
+alexa swears, this is necessary:
 <speak>  <phoneme alphabet="ipa" ph="fʌk">asdf</phoneme> </speak>

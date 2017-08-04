@@ -15,7 +15,7 @@ import random
 
 s3 = boto3.client('s3')
 
-# --------------- Helpers that build all of the responses ----------------------
+# --------------- Helpers that build all of the responses ---------------------
 
 
 def build_speechlet_response(title, output, reprompt_text, should_end_session):
@@ -246,7 +246,6 @@ def on_intent(intent_request, session):
         raise ValueError("Invalid intent")
 
 
-
 def on_session_ended(session_ended_request, session):
     """ Called when the user ends the session.
     Is not called when the skill returns should_end_session=true
@@ -276,7 +275,9 @@ def lambda_handler(event, context):
     """
 
     if event['session']['new']:
-        on_session_started({'requestId': event['request']['requestId']},event['session'])
+        on_session_started({
+            'requestId': event['request']['requestId']
+        }, event['session'])
 
     if event['request']['type'] == "LaunchRequest":
         return on_launch(event['request'], event['session'])
