@@ -35,6 +35,7 @@
 How can you get around using the Invocation name? --> "Alexa, turn off the lights" vs "Alexa, tell Phillips Hue to turn off the lights"
 
 ### Slots Make sure code reads like prose
+<<<<<<< HEAD
 
 ## Akersh Srivastava [@Akersh_s](https://twitter.com/Akersh_S)
 
@@ -52,3 +53,5 @@ How can you get around using the Invocation name? --> "Alexa, turn off the light
 Start by designing the "Happy path", then work to offer other routes around the "happy path" that still take the user to the endpoint.
 
 asdf
+=======
+>>>>>>> 040fb43f785b94400688d217377ff03b97c30521
