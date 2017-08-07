@@ -102,6 +102,18 @@ def handle_session_end_request():
 
 # -------------------- No man's land ----------------------------
 
+
+def check_valid_fact(fact_name):
+    if fact_name == 'air':
+        return True
+    elif fact_name == 'people':
+        return True
+    elif fact_name == 'donating' or fact_name == 'donations':
+        return True
+    else:
+        return False
+
+
 # ---------------------- Very serious code below -------------------------------
 
 
@@ -144,8 +156,8 @@ def get_mordor(intent, session):
     reprompt_text = None
 
     speech_output = "Now, the Elves made many rings, but secretly Sauron made " \
-    "One Ring to rule all the others, and their power was bound up with it, " \
-    "to be subject wholly to it and to last only so long as it too should last. "
+        "One Ring to rule all the others, and their power was bound up with it, " \
+        "to be subject wholly to it and to last only so long as it too should last. "
 
     should_end_session = False
     return build_response(
@@ -159,18 +171,12 @@ def get_fact(intent, session):
     card_title = "InterestingFact"
     reprompt_text = None
 
-    fact_name = intent['slots']['FactName']['value']
-
-    if fact_name == None:
-        randy_savage = random.randint(1, 3)
-        if randy_savage == 1:
-            fact_name = 'air'
-        elif randy_savage == 2:
-            fact_name = 'donating'
-        else:
-            fact_name = 'people'
+    if "value" in json.loads(intent)['slots']['FactName']:
+        fact_name = intent['slots']['FactName']['value']
     else:
-        fact_name = str(fact_name).lower()
+        fact_name = 'air'
+
+    fact_name = str(fact_name).lower()
 
     if fact_name == 'air':  # air
         speech_output = '<speak><audio src="https://s3.amazonaws.com/glados-home-automation/GLaDOS_fact_air.mp3"/></speak>'
@@ -192,7 +198,7 @@ def get_fact(intent, session):
                                                should_end_session))
 
 
-# --------------------------------- Events -------------------------------------
+# --------------------------------- Events -----------------------------------
 
 
 def on_session_started(session_started_request, session):
