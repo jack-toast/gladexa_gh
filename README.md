@@ -333,18 +333,23 @@ When the Alexa Skill calls your Lambda function, it triggers ***lambda_handler**
 
 The JSON body of the request (what we care about) is provided in the event parameter.
 
+This function takes the event and calls individual functions based on the contents of the event object.
+
+If you're initiating a session without a request in mind, you would call the on_launch function.
+
+This function exists to say hello - to welcome the user to the skill.
+
+If you have an intent driven request, you would call the on_intent function.
+
+The on_intent function is the meat and potatoes of the skill building process. This is where you make the lambda function do things specified by the intent that you called.
+
+If you wanted to end the session, you would call the on_session_ended function.
+
+This function exists to say goodbye.
+
+From here you should be able to look through my code to figure out what's happening.
 
 
+### We're done!!!
 
-
-
-
-
-
-
-
-
-
-
-
-asdf
+## Thanks for reading. Please send me any questions you may have.
